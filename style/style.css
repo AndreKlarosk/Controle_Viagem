@@ -217,9 +217,8 @@
     flex-direction: column;
   }
   .logo {
-    height: 80px;      /* reduz a logo no mobile */
-    margin: 0 0 10px;  /* espaçamento abaixo da logo */
-  }
+  height: 200px; /* volta ao tamanho original */
+}
 
   /* Abas: diminui padding para caber na tela */
   nav.tabs button {
@@ -250,5 +249,17 @@
   #tabelaRelatorios td {
     padding: 6px;
     font-size: 0.8rem;
+  }
+}
+/* Em telas pequenas, força o menu em duas linhas */
+@media (max-width: 600px) {
+  nav.tabs {
+    flex-wrap: wrap;       /* permite quebra de linha */
+    overflow-x: visible;   /* remove a rolagem horizontal */
+  }
+  nav.tabs button {
+    flex: 1 1 25%;         /* 4 botões por linha, depois quebra para os restantes */
+    min-width: 0;          /* permite encolher abaixo do min-width anterior */
+    margin: 2px 0;         /* um pequeno espaçamento vertical */
   }
 }
