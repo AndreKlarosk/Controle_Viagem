@@ -50,6 +50,7 @@ window.loadRelatorios = async function loadRelatorios() {
     // Linha da tabela
     const row = document.createElement('tr');
     row.innerHTML = `
+      <td>${v.id}</td>
       <td>${v.origem}</td>
       <td>${v.destino}</td>
       <td>${v.cliente || '-'}</td>
