@@ -209,4 +209,46 @@
       padding: 10px;
     }
   }
-  
+  /* Ajustes específicos para mobile (máx-width: 600px) */
+@media (max-width: 600px) {
+
+  /* Cabeçalho: empilha logo e título verticalmente */
+  header {
+    flex-direction: column;
+  }
+  .logo {
+    height: 80px;      /* reduz a logo no mobile */
+    margin: 0 0 10px;  /* espaçamento abaixo da logo */
+  }
+
+  /* Abas: diminui padding para caber na tela */
+  nav.tabs button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    min-width: 60px;
+  }
+
+  /* Veículos: empilha info e botões verticalmente */
+  .veiculo-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .veiculo-item span {
+    margin-bottom: 8px;
+  }
+  .veiculo-item button {
+    margin: 4px 0 0;  /* botão abaixo do texto, com espaçamento */
+  }
+
+  /* Formularios: coluna única já definido */
+  form {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Tabelas: diminui padding interno para ficar mais estreito */
+  #tabelaRelatorios th,
+  #tabelaRelatorios td {
+    padding: 6px;
+    font-size: 0.8rem;
+  }
+}
