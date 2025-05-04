@@ -61,6 +61,8 @@ window.loadRelatorios = async function loadRelatorios() {
       <td>R$ ${totalAbat.toFixed(2)}</td>
       <td>R$ ${totalGastos.toFixed(2)}</td>
       <td>R$ ${lucro.toFixed(2)}</td>
+      <td><button class="edit-btn"   data-id="${v.id}">Editar</button></td>
+      <td><button class="delete-btn" data-id="${v.id}">Excluir</button></td>
     `;
     tbody.appendChild(row);
   });
