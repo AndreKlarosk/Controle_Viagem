@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <!-- Meta viewport para responsividade -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <!-- Tema da barra em Android -->
+        <meta name="theme-color" content="#2c3e50">
+        <!-- Permite rodar em iOS como app standalone -->
+        <meta name="apple-mobile-web-app-capable"   content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="apple-mobile-web-app-title"     content="Viagens">
+        <!-- Ícones para iOS -->
+        <link rel="apple-touch-icon" sizes="192x192" href="img/logo-192.png">
+        <link rel="apple-touch-icon" sizes="512x512" href="img/logo-512.png">
+        
+        <title>Controle de Viagens</title>
+        <link rel="stylesheet" href="style/style.css">
+        <link rel="manifest" href="manifest.json">
+      </head>
+<body>
+  <header>
+    <img src="img/logo.png" alt="Logo" class="logo" />
+    <h1>Controle de Viagens</h1>
+  </header>
+
+  <nav class="tabs">
+    <button data-tab="veiculos" class="active">Veículos</button>
+    <button data-tab="nova-viagem">Nova Viagem</button>
+    <button data-tab="abastecimentos">Abastecimentos</button>
+    <button data-tab="gastos">Gastos Extras</button>
+    <button data-tab="encerrar">Encerrar Viagem</button>
+    <button data-tab="relatorios">Relatórios</button>
+    <button data-tab="config">Configurações</button>
+  </nav>
+
+  <main>
+    <!-- Veículos -->
+    <section id="veiculos" class="tab-content active">
+      <h2>Cadastro de Veículos</h2>
+      <form id="formVeiculo">
+        <label>Placa:<input type="text" name="placa" required /></label>
+        <label>Modelo:<input type="text" name="modelo" required /></label>
+        <label>Ano:<input type="number" name="ano" required /></label>
+        <label>Combustível:<input type="text" name="combustivel" /></label>
+        <label>KM Atual:<input type="number" name="kmAtual" /></label>
+        <button type="submit">Salvar Caminhão</button>
+      </form>
+      <div id="listaVeiculos"></div>
+    </section>
+
+    <!-- Nova Viagem -->
+    <section id="nova-viagem" class="tab-content">
+      <h2>Iniciar Nova Viagem</h2>
+      <form id="formViagem">
+        <label>Origem:<input type="text" name="origem" required /></label>
+        <label>Destino:<input type="text" name="destino" required /></label>
+        <label>Cliente:<input type="text" name="cliente" /></label>
+        <label>Tipo de Carga:<input type="text" name="tipoCarga" /></label>
+        <label>Caminhão:<select name="veiculoId" required></select></label>
+        <label>KM Inicial:<input type="number" name="kmInicial" required /></label>
+        <label>Valor Receber:<input type="number" name="valorReceber" step="0.01" /></label>
+        <button type="submit">Iniciar Viagem</button>
+      </form>
+    </section>
+
+    <!-- Abastecimentos -->
+    <section id="abastecimentos" class="tab-content">
+      <h2>Registrar Abastecimento</h2>
+      <form id="formAbastecimento">
+        <label>Viagem:<select name="viagemId" required></select></label>
+        <label>Litros:<input type="number" name="litros" step="0.01" required /></label>
+        <label>Valor/Litro:<input type="number" name="valorLitro" step="0.01" required /></label>
+        <label>Posto:<input type="text" name="posto" /></label>
+        <label>Foto Nota:<input type="file" name="comprovante" /></label>
+        <button type="submit">Salvar Abastecimento</button>
+      </form>
+      <div id="listaAbastecimentos"></div>
+    </section>
+
+    <!-- Gastos Extras -->
+    <section id="gastos" class="tab-content">
+      <h2>Registrar Gastos Extras</h2>
+      <form id="formGasto">
+        <label>Viagem:<select name="viagemId" required></select></label>
+        <label>Tipo de Gasto:<input type="text" name="tipo" required /></label>
+        <label>Valor:<input type="number" name="valor" step="0.01" required /></label>
+        <label>Descrição:<input type="text" name="descricao" /></label>
+        <label>Foto:<input type="file" name="comprovante" /></label>
+        <button type="submit">Salvar Gasto</button>
+      </form>
+      <div id="listaGastos"></div>
+    </section>
+
+    <!-- Encerrar Viagem -->
+    <section id="encerrar" class="tab-content">
+      <h2>Encerrar Viagem</h2>
+      <form id="formEncerramento">
+        <label>Viagem:<select name="viagemId" required></select></label>
+        <label>KM Final:<input type="number" name="kmFinal" required /></label>
+        <button type="submit">Encerrar Viagem</button>
+      </form>
+      <div id="resumoEncerramento"></div>
+    </section>
+
+    <!-- Relatórios -->
+    <section id="relatorios" class="tab-content">
+      <h2>Relatórios</h2>
+      <div id="tabelaRelatorios"></div>
+      <button id="exportCsv">Exportar CSV</button>
+      <button id="exportPdf">Exportar PDF</button>
+    </section>
+
+    <!-- Configurações -->
+    <section id="config" class="tab-content">
+      <h2>Configurações</h2>
+      <form id="formConfig">
+        <label>Nome do Motorista:<input type="text" name="nomeMotorista" /></label>
+        <label>PIN de Acesso:<input type="password" name="pin" /></label>
+        <button type="submit">Salvar</button>
+      </form>
+    </section>
+  </main>
+  <script src="js/html2pdf.bundle.min.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
